@@ -51,10 +51,13 @@ RUN groupadd -r appuser && useradd -r -g appuser appuser
 WORKDIR /app
 
 # Copy built application from builder stage
-COPY --from=builder --chown=appuser:appuser /app/client/dist ./client/dist
-COPY --from=builder --chown=appuser:appuser /app/server ./server
-COPY --from=builder --chown=appuser:appuser /app/Projects ./Projects
-COPY --from=builder --chown=appuser:appuser /app/package*.json ./
+COPY --from=builder /app/client/dist ./client/dist
+COPY --from=builder /app/server ./server
+COPY --from=builder /app/Projects ./Projects
+COPY --from=builder /app/package*.json ./
+
+# Fix permissions for all copied files
+RUN chown -R appuser:appuser /app
 
 # Ensure build scripts are executable
 RUN chmod +x Projects/*/build.sh
