@@ -1,5 +1,13 @@
-# Use Node.js 22 as base image
+# Use elan-base as base image and install Node.js
 FROM docker.io/lennytaelman/elan-base:latest AS base
+
+# Install Node.js 22
+RUN apt-get update && apt-get install -y \
+    curl \
+    && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
+    && apt-get install -y nodejs \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /app
@@ -27,6 +35,14 @@ RUN npm run build:server
 
 # Production stage
 FROM docker.io/lennytaelman/elan-base:latest AS production
+
+# Install Node.js 22 in production stage
+RUN apt-get update && apt-get install -y \
+    curl \
+    && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
+    && apt-get install -y nodejs \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Create app user for security
 RUN groupadd -r appuser && useradd -r -g appuser appuser
