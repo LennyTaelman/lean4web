@@ -117,13 +117,8 @@ function App() {
       } else {
         // no stored preferences, set a default value
         if (key == 'theme') {
-          if (isBrowserDefaultDark()) {
-            console.debug("[Lean4web] Preferences: Set dark theme.")
-            newPreferences['theme'] = 'Visual Studio Dark'
-          } else {
-            console.debug("[Lean4web] Preferences: Set light theme.")
-            newPreferences['theme'] = 'Visual Studio Light'
-          }
+          console.debug("[Lean4web] Preferences: Set light theme.")
+          newPreferences['theme'] = 'Visual Studio Light'
         }
       }
     }
