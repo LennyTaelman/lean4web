@@ -31,10 +31,6 @@ git clone --recurse-submodules https://github.com/leanprover-community/lean4web.
 
 note that `--recurse-submodules` is needed to load the predefined projects in `Projects/`. (on an existing clone, you can call `git submodule init` and `git submodule update`)
 
-Install Bubblewrap:
-```
-sudo apt-get install bubblewrap
-```
 
 Navigate into the cloned repository, install, and
 compile:
@@ -49,13 +45,6 @@ Now the server can be started using
 PORT=8080 npm run production
 ```
 
-If you get the following error:
-```
-bwrap: loopback: Failed RTM_NEWADDR: Operation not permitted
-bwrap: setting up uid map: Permission denied
-```
-follow these instructions:
-https://etbe.coker.com.au/2024/04/24/ubuntu-24-04-bubblewrap/
 
 To set the locations of SSL certificates, use the following environment variables:
 ```

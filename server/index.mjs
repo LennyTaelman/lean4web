@@ -81,19 +81,8 @@ function startServerProcess(project) {
   let projectPath = path.join(projectsBasePath, project)
 
   let serverProcess
-  if (isDevelopment) {
-    if (!isGithubAction) {
-      console.warn("Running without Bubblewrap container!")
-    }
-    serverProcess = cp.spawn("lake", ["serve", "--"], { cwd: projectPath })
-  } else {
-    console.info("Running with Bubblewrap container.")
-    serverProcess = cp.spawn("./bubblewrap.sh", [projectPath], { cwd: __dirname })
-  }
+  serverProcess = cp.spawn("lake", ["serve", "--"], { cwd: projectPath })
 
-  // serverProcess.stdout.on('data', (data) => {
-  //   console.log(`Lean Server: ${data}`);
-  // });
 
   serverProcess.stderr.on('data', data =>
     console.error(`Lean Server: ${data}`)
