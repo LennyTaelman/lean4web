@@ -15,6 +15,8 @@ const lean4webConfig : LeanWebConfig = {
           "name": "Rational" }]},
     { "folder": "Stable",
       "name": "Stable Lean" },
+    { "folder": "FLT",
+      "name": "FLT" },
   ],
   "serverCountry": null,
   "contactDetails": null,
