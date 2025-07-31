@@ -18,7 +18,7 @@ const lean4webConfig : LeanWebConfig = {
     { "folder": "FLT",
       "name": "FLT" },
   ],
-  "serverCountry": null,
+  "serverCountry": "Netherlands",
   "contactDetails": null,
   "impressum": null
 }
