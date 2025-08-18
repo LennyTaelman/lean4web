@@ -19,10 +19,10 @@ nvm install node npm
 Now, install `git` and clone this repository:
 ```
 sudo apt-get install git
-git clone --recurse-submodules https://github.com/leanprover-community/lean4web.git
+git clone https://github.com/LennyTaelman/lean4web.git
 ```
 
-note that `--recurse-submodules` is needed to load the predefined projects in `Projects/`. (on an existing clone, you can call `git submodule init` and `git submodule update`)
+
 
 ## Install client
 
@@ -33,6 +33,9 @@ cd lean4web
 npm install
 npm run build:client
 ```
+
+## Install `elan` 
+
 
 ## Install the Lean projects
 
@@ -54,6 +57,24 @@ SSL_CRT_FILE=/path/to/crt_file.cer SSL_KEY_FILE=/path/to/private_ssl_key.pem POR
 ```
 
 
+
+## Docker Deployment
+
+For simplified deployment, you can use Docker to containerize the application:
+
+### Build the Docker image
+```
+docker build -t lean4web .
+```
+
+### Run the container
+```
+docker run -p 8080:8080 lean4web
+```
+
+The Docker container will build the Lean projects at startup and then serve the application on port 8080.
+
+**Note:** The first startup may take several minutes as the Lean projects (including mathlib) are built at runtime to keep the Docker image size manageable.
 
 ### Running different projects
 You can run any lean project through the webeditor by cloning them to the `Projects/` folder. See [Adding Projects](Projects/README.md) for further instructions.
