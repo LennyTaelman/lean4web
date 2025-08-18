@@ -1,20 +1,13 @@
 #!/usr/bin/env bash
 
-# Navigate to Projects/Tutoraat directory
-cd "$(dirname $0)/../Projects/Tutoraat"
+# Navigate to Projects directory
+cd "$(dirname $0)/../Projects"
 
 echo "Building Tutoraat project"
 
-# Clone or update the LeanTutoraat repository
-if [ -d ".git" ]; then
-    echo "Updating existing repository..."
-    git pull
-else
-    echo "Cloning LeanTutoraat repository..."
-    # Remove everything except build.sh and clone
-    find . -maxdepth 1 -not -name 'build.sh' -not -name '.' -exec rm -rf {} \;
-    git clone https://github.com/LennyTaelman/LeanTutoraat .
-fi
+# Clone the LeanTutoraat repository
+git clone https://github.com/LennyTaelman/LeanTutoraat Tutoraat
+cd Tutoraat
 
 # Build the project
 echo "Getting cache and building..."
