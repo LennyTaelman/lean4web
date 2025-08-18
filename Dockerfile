@@ -1,5 +1,5 @@
-# Use Ubuntu 22.04 as base image (matching the installation instructions)
-FROM ubuntu:22.04
+# Use official Node.js image version 22 (matching package.json requirement)
+FROM node:22-slim
 
 # Set working directory
 WORKDIR /app
@@ -10,14 +10,6 @@ RUN apt-get update && apt-get install -y \
     git \
     bash \
     && rm -rf /var/lib/apt/lists/*
-
-# Install NVM and Node.js (following the exact installation instructions)
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash \
-    && bash -c "source ~/.bashrc && nvm install node npm"
-
-# Add NVM to PATH for subsequent commands
-ENV NVM_DIR="/root/.nvm"
-ENV PATH="$NVM_DIR/versions/node/$(ls $NVM_DIR/versions/node | head -1)/bin:$PATH"
 
 # Install elan (Lean version manager)
 RUN curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y
