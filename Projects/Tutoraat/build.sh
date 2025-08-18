@@ -5,7 +5,7 @@
 # Operate in the directory where this file is located
 cd $(dirname $0)
 
-git clone https://github.com/ImperialCollegeLondon/FLT .
+git clone https://github.com/LennyTaelman/LeanTutoraat .
 lake exe cache get
 lake build
 
