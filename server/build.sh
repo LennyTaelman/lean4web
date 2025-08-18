@@ -1,24 +1,24 @@
 #!/usr/bin/env bash
 
-cd "$(dirname $0)/../Projects"
+# Navigate to Projects/Tutoraat directory
+cd "$(dirname $0)/../Projects/Tutoraat"
 
-# Iterate over subfolders in Projects and look for a build file `build.sh`
-for folder in "."/*; do
-  if [ -d "$folder" ]; then
-    build_script="$folder/build.sh"
-    if [ -f "$build_script" ]; then
-      SECONDS=0
-      echo "Start building $folder"
-      echo "Start building $folder" | logger -t lean4web
+echo "Building Tutoraat project"
 
-      "$build_script"
+# Clone or update the LeanTutoraat repository
+if [ -d ".git" ]; then
+    echo "Updating existing repository..."
+    git pull
+else
+    echo "Cloning LeanTutoraat repository..."
+    # Remove everything except build.sh and clone
+    find . -maxdepth 1 -not -name 'build.sh' -not -name '.' -exec rm -rf {} \;
+    git clone https://github.com/LennyTaelman/LeanTutoraat .
+fi
 
-      duration=$SECONDS
-      echo "Finished $folder in $(($duration / 60)):$(($duration % 60)) min"
-      echo "Finished $folder in $(($duration / 60)):$(($duration % 60)) min" | logger -t lean4web
-    else
-      echo "Skipping $folder: build.sh missing"
-    fi
+# Build the project
+echo "Getting cache and building..."
+lake exe cache get
+lake build
 
-  fi
-done
+echo "Tutoraat build completed"
