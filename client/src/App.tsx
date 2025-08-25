@@ -76,7 +76,7 @@ function App() {
     if (args.url) {setUrl(lookupUrl(decodeURIComponent(args.url)))}
 
     // if no project provided, use default
-    let project = args.project || 'MathlibDemo'
+    let project = args.project || 'LeanTutoraat'
 
     console.log(`[Lean4web] Setting project to ${project}`)
     setProject(project)
