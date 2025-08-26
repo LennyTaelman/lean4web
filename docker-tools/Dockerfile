@@ -16,7 +16,7 @@ RUN curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -
 ENV PATH="/root/.elan/bin:$PATH"
 
 # add webclient version file to invalidate cache on lean4web client repo changes
-ADD client_version.txt /app/client_version.txt
+ADD client_version.txt /client_version.txt
 
 # Clone the repository
 RUN git clone https://github.com/LennyTaelman/lean4web.git .
@@ -25,7 +25,7 @@ RUN git clone https://github.com/LennyTaelman/lean4web.git .
 RUN npm install && npm run build:client
 
 # add project version file to invalidate cache on project repo changes
-ADD project_version.txt /app/project_version.txt
+ADD project_version.txt /project_version.txt
 
 # build the server (i.e. the Lean project)
 # WARNING: this creates a large image including mathlib depedencies!
