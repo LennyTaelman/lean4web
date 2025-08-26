@@ -106,7 +106,7 @@ const FlexibleMenu: FC <{
   }
 
   return <>
-    <Dropdown open={openExample} setOpen={setOpenExample} icon={faStar} text="Examples"
+    <Dropdown open={openExample} setOpen={setOpenExample} icon={faStar} text="Worksheets"
         useOverlay={isInDropdown}
         onClick={() => {setOpenLoad(false); (!isInDropdown && setOpenNav(false))}}>
       {lean4webConfig.projects.map(proj => proj.examples?.map(example =>
