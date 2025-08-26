@@ -119,18 +119,19 @@ const FlexibleMenu: FC <{
           }} />
       ))}
     </Dropdown>
+    {/* Load dropdown removed */}
+    {/*
     <Dropdown open={openLoad} setOpen={setOpenLoad} icon={faUpload} text="Load"
         useOverlay={isInDropdown}
         onClick={() => {setOpenExample(false); (!isInDropdown && setOpenNav(false))}}>
       <input id="file-upload" type="file" onChange={loadFileFromDisk} onClick={(ev) => ev.stopPropagation()} />
-      {/* Need `ev.stopPropagation` to prevent closing until the file is loaded.
-          Otherwise the file-upload is destroyed too early. */}
       <label htmlFor="file-upload" className="nav-link" onClick={(ev) => ev.stopPropagation()} >
         <FontAwesomeIcon icon={faUpload} /> Load file from disk
       </label>
       <NavButton icon={faCloudArrowUp} text="Load from URL" onClick={() => {setLoadUrlOpen(true)}} />
       <NavButton iconElement={<ZulipIcon />} text="Load Zulip Message" onClick={() => {setLoadZulipOpen(true)}} />
     </Dropdown>
+    */}
   </>
 }
 
