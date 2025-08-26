@@ -92,6 +92,11 @@ nav select {
   margin-right: .5rem;
 }
 
+/* Hide the project selector dropdown */
+nav select[name="leanVersion"] {
+  display: none;
+}
+
 .tooltip {
   position: relative;
   cursor: pointer;
