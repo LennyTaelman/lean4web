@@ -5,6 +5,8 @@ const lean4webConfig : LeanWebConfig = {
     { "folder": "LeanTutoraat",
       "name": "LeanTutoraat",
       "examples": [
+        { "file" : "LeanTutoraat/00_Introduction.lean",
+          "name": "00_Introduction" },
         { "file": "LeanTutoraat/01_Calculations.lean",
           "name": "01_Calculations" }
       ]
