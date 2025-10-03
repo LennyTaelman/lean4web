@@ -8,7 +8,9 @@ const lean4webConfig : LeanWebConfig = {
         { "file" : "LeanTutoraat/00_Introduction.lean",
           "name": "00_Introduction" },
         { "file" : "LeanTutoraat/01_Calculations.lean",
-          "name": "01_Calculations" }
+          "name": "01_Calculations" },
+        { "file" : "LeanTutoraat/02_Structure.lean",
+          "name": "02_Structure" }
       ]
     }
   ],
