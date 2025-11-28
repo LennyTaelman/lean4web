@@ -14,7 +14,9 @@ const lean4webConfig : LeanWebConfig = {
         { "file" : "LeanTutoraat/03_Induction.lean",
           "name": "03_Induction" },
         { "file" : "LeanTutoraat/04_Recap.lean",
-          "name": "04_Recap" }
+          "name": "04_Recap" },
+        { "file" : "LeanTutoraat/05_Irrationality.lean",
+          "name": "05_Irrationality" }
       ]
     }
   ],
